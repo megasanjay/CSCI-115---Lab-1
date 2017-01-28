@@ -44,6 +44,8 @@ bool List::lookup(int e)
     return false;
 }
 
+
+
 Relation::Relation(int e)
 {
     
@@ -116,10 +118,28 @@ Relation::Relation(int e)
     }*/
 }
 
-void Relation::insert_pair(int e1, int e2)
+void List::cons(int e)
 {
     Node* nn = new Node();
-    nn->value = e2;
+    nn->value = e;
+    
+    if (this->head == NULL)
+    {
+        this->head = nn;
+        nn->next = NULL;
+        return;
+    }
+    
+    nn->next = this->head;
+    this->head = nn;
+    
+    return;
+}
+
+void Relation::insert_pair(int e1, int e2)
+{
+    //Node* nn = new Node();
+    
     //succs[e1].cons(e2);
     
     if (succs[e1].lookup(e2))
@@ -127,6 +147,10 @@ void Relation::insert_pair(int e1, int e2)
         return;
     }
     
+    succs[e1].cons(e2);
+    
+    this->npairs++;
+    /*
     if (succs[e1].head == NULL)
     {
         succs[e1].head = nn;
@@ -140,7 +164,7 @@ void Relation::insert_pair(int e1, int e2)
     
     this->npairs++;
     
-    return;
+    return;*/
 }
 
 void Relation::list_pairs()
@@ -160,6 +184,7 @@ void Relation::list_pairs()
         while (p->next != NULL)
         {
             cout << '(' << i << ',' << p->value << ") ";
+            p  = p->next;
         }
         
         if (p->next == NULL)
@@ -168,18 +193,70 @@ void Relation::list_pairs()
         }
     }
     
-    
+    return;
 }
 
 
 void Relation::list_succs(int e)
 {
+    Node* p = succs[e].head;
+    
+    cout << "Successors: " ;
+    
+    if (p == NULL)
+    {
+        return;
+    }
+    
+    while (p->next != NULL)
+    {
+        cout << p->value << " ";
+        p = p->next;
+    }
+    
+    if (p->next == NULL)
+    {
+        cout << p->value << " ";
+    }
+    
+    return;
     
 }
 
 void Relation::list_preds(int e)
 {
+    Node* p;
     
+    cout << "Predecessors: ";
+    
+    for (int i = 0; i < (num_elts()); i++)
+    {
+        p = succs[i].head;
+        if (p == NULL)
+        {
+            continue;
+        }
+        while (p->next != NULL)
+        {
+            if (p->value == e)
+            {
+                cout << i << " ";
+            }
+            p = p->next;
+        }
+        
+        if (p->next == NULL)
+        {
+            if (p->value == e)
+            {
+                cout << i << " ";
+            }
+        }
+    }
+    
+    cout << endl;
+    
+    return;
 }
 
 int Relation::num_elts()
@@ -194,7 +271,27 @@ int Relation::num_pairs()
 
 int Relation::num_succs(int e)
 {
-    return 0;
+    Node* p = succs[e].head;
+    
+    int count = 0;
+    
+    if (p == NULL)
+    {
+        return 0;
+    }
+    
+    while (p->next != NULL)
+    {
+        count++;
+        p = p->next;
+    }
+    
+    if (p->next == NULL)
+    {
+        count++;
+    }
+    
+    return count;
 }
 
 
