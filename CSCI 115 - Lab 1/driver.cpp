@@ -18,7 +18,7 @@ int main(int argc, const char * argv[])
     int menuinput = 0;
     int e, e1, e2;
     
-    string menu = "Menu: \n1 - Print relation information \n2 - Insert a pair into the relation \n3 - list all pairs in the relation \n4 - list all successors of a particular element \n5 - list all predecessors of a particular element \n6 - quit \n";
+    string menu = "Menu: \n1 - Print relation information \n2 - Insert a pair into the relation \n3 - List all pairs in the relation \n4 - List all successors of a particular element \n5 - List all predecessors of a particular element \n6 - Quit \n";
     
     cout << "Enter the number of elements in the relation: ";
 
@@ -29,6 +29,7 @@ int main(int argc, const char * argv[])
     while (menuinput != 6)
     {
         cout << menu << endl << "Choose a function (1 - 6): ";
+        cout << endl << endl;
         cin >> menuinput;
         
         if (menuinput == 1)
