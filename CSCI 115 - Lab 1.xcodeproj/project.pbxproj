@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		92B348F31E3C06CD008A389D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B348F21E3C06CD008A389D /* main.cpp */; };
+		92B348F31E3C06CD008A389D /* relation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B348F21E3C06CD008A389D /* relation.cpp */; };
+		92B348FB1E3C08F4008A389D /* driver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 92B348FA1E3C08F4008A389D /* driver.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,9 @@
 
 /* Begin PBXFileReference section */
 		92B348EF1E3C06CD008A389D /* CSCI 115 - Lab 1 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "CSCI 115 - Lab 1"; sourceTree = BUILT_PRODUCTS_DIR; };
-		92B348F21E3C06CD008A389D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		92B348F21E3C06CD008A389D /* relation.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = relation.cpp; sourceTree = "<group>"; };
+		92B348F91E3C06EE008A389D /* relation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = relation.h; sourceTree = "<group>"; };
+		92B348FA1E3C08F4008A389D /* driver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = driver.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +60,9 @@
 		92B348F11E3C06CD008A389D /* CSCI 115 - Lab 1 */ = {
 			isa = PBXGroup;
 			children = (
-				92B348F21E3C06CD008A389D /* main.cpp */,
+				92B348F21E3C06CD008A389D /* relation.cpp */,
+				92B348F91E3C06EE008A389D /* relation.h */,
+				92B348FA1E3C08F4008A389D /* driver.cpp */,
 			);
 			path = "CSCI 115 - Lab 1";
 			sourceTree = "<group>";
@@ -119,7 +124,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				92B348F31E3C06CD008A389D /* main.cpp in Sources */,
+				92B348F31E3C06CD008A389D /* relation.cpp in Sources */,
+				92B348FB1E3C08F4008A389D /* driver.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
