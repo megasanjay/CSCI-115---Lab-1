@@ -14,23 +14,36 @@ using namespace std;
 
 int main(int argc, const char * argv[])
 {
-    int input;
+    int input = 0;
     int menuinput = 0;
     int e, e1, e2;
     
     string menu = "Menu: \n1 - Print relation information \n2 - Insert a pair into the relation \n3 - List all pairs in the relation \n4 - List all successors of a particular element \n5 - List all predecessors of a particular element \n6 - Quit \n";
     
-    cout << "Enter the number of elements in the relation: ";
-
-    cin >> input;
+    while (input <= 0 )
+    {
+        cout << "Enter the number of elements in the relation: ";
+        
+        cin.clear();
+        cin >> input;
+        
+        if (input < 1)
+        {
+            cout << "Error: number of elements must be positive";
+            cout << endl << endl;
+        }
+    }
     
     Relation* nr = new Relation(input);
     
     while (menuinput != 6)
     {
         cout << menu << endl << "Choose a function (1 - 6): ";
-        cout << endl << endl;
+        
+        cin.clear();
         cin >> menuinput;
+        
+        cout << endl;
         
         if (menuinput == 1)
         {
