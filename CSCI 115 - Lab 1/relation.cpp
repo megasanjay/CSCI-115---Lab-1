@@ -58,6 +58,7 @@ void List::cons(int e)  // cons function to add pairs to list
     {
         this->head = nn;
         nn->next = NULL;
+        (this->length)++; // Update list length
         return;
     }
     
@@ -131,12 +132,12 @@ void Relation::list_pairs()     // list pairs function for the realtion
     // Cycle through elements listing out the pairs for each relation element
     for (int i = 0; i < (num_elts()); i++)
     {
-        p = succs[i].head;
-        
         if (succs[i].length == 0)   // If no pairs exist, move onto the next element
         {
             continue;
         }
+        
+        p = succs[i].head;
         
         // Print out the pairs for the list
         while (p->next != NULL)
